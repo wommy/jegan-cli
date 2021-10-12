@@ -1,16 +1,8 @@
-const { prompt } = require('enquirer')
-
-prompt([
-	{
-    type: 'input',
-    name: 'username',
-    message: 'What is your username?'
-  },
-  {
-    type: 'password',
-    name: 'password',
-    message: 'What is your password?'
-  }
-])
-  .then(answer => console.log('Answer:', answer))
-
+(async ()=>{
+	console.log(await require('prompts')({
+		type: 'number',
+		name: 'value',
+		message: 'how old are you',
+		validate: value => value < 18 ?`18+ only` :true
+	}))
+})()
